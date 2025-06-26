@@ -1,6 +1,20 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import ChatInterface from "./chatInterface";
 
 export default function Home() {
+  const [showBar, setShowBar] = useState(false);
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") setShowBar((prev) => !prev);
+  };
+
+  useEffect(() => {    {/* Toggle chatbot with ESC*/}
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div>
       {/*Announcement bar*/}
@@ -140,7 +154,7 @@ export default function Home() {
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-16 w-full max-w-6xl">
           <div className="flex-1 text-left">
-            <h3 className="text-5xl md:text-5xl font-serif mb-4 text-black">Leverage Your Firm's Workflows</h3>
+            <h3 className="text-5xl md:text-5xl font-serif mb-4 text-black">Leverage Your Firm&rsquo;s Workflows</h3>
             <p className="text-gray-500 text-">
             Use agents designed to create work outputs exactly as you would across PowerPoint, Excel and Word.
             </p>
@@ -181,14 +195,14 @@ export default function Home() {
           </div>
         </div>
         <div className="flex-1 max-w-md text-left">
-        <h3 className="text-5xl md:text-5xl font-serif mb-4 text-black">Embed AI into Your Firm's DNA</h3>
+        <h3 className="text-5xl md:text-5xl font-serif mb-4 text-black">Embed AI into Your Firm&rsquo;s DNA</h3>
             <p className="text-gray-500">
             Rogo seamlessly integrates internal and external data sources, maintaining accuracy, transparency and auditability.
           </p>
         </div>
       </section>
 
-      {/* Enterprise*/}
+      {/*Enterprise Section*/}
       <section className="w-full bg-white py-20 px-4">
         <div className="max-w-5xl mx-auto text-center mb-12">
           <h2 className="text-5xl md:text-5xl font-serif text-black mb-4">
@@ -207,7 +221,7 @@ export default function Home() {
             </div>
             <h3 className="text-xm mb-2 text-black">Custom-Trained Models</h3>
             <p className="text-gray-600 text-base">
-              LLMs built for finance, using professionally labeled data tailored to the standards of your firm's best analysts.
+              LLMs built for finance, using professionally labeled data tailored to the standards of your firm&rsquo;s best analysts.
             </p>
           </div>
           <div className="bg-gray-100 p-8 flex flex-col items-start rounded-none shadow-sm">
@@ -238,12 +252,9 @@ export default function Home() {
       {/* ecurity Section*/}
       <section className="w-full bg-[#181818] text-white py-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 px-8">
-          {/* Left Side */}
           <div className="flex-1 flex flex-col justify-center">
-            {/* Security Label */}
             <div className="flex items-center gap-2 mb-8">
               <div className="bg-white rounded w-8 h-8 flex items-center justify-center">
-                {/* Lock Icon */}
                 <svg width="20" height="20" fill="none" stroke="#181818" strokeWidth="2" viewBox="0 0 24 24">
                   <rect x="5" y="11" width="14" height="8" rx="2" stroke="#181818" strokeWidth="2"/>
                   <path d="M7 11V7a5 5 0 0110 0v4" stroke="#181818" strokeWidth="2"/>
@@ -302,7 +313,6 @@ export default function Home() {
             {/* SOC2 */}
             <div className="flex flex-col items-center justify-center border border-gray-700 h-56">
               <div className="w-20 h-20 bg-gray-600 rounded-full flex items-center justify-center mb-2">
-                {/* Placeholder for SOC2 badge */}
                 <span className="text-gray-300 font-bold text-lg">SOC2</span>
               </div>
               <span className="text-gray-400 text-sm mt-2">SOC2</span>
@@ -310,7 +320,6 @@ export default function Home() {
             {/* CCPA */}
             <div className="flex flex-col items-center justify-center border border-gray-700 h-56">
               <div className="w-20 h-20 bg-gray-600 rounded flex items-center justify-center mb-2">
-                {/* Placeholder for CCPA badge */}
                 <span className="text-gray-300 font-bold text-lg">CA</span>
               </div>
               <span className="text-gray-400 text-sm mt-2">CCPA</span>
@@ -318,7 +327,6 @@ export default function Home() {
             {/* ISO 27001 */}
             <div className="flex flex-col items-center justify-center border border-gray-700 h-56">
               <div className="w-20 h-20 bg-gray-600 rounded-full flex items-center justify-center mb-2">
-                {/* Placeholder for ISO badge */}
                 <span className="text-gray-300 font-bold text-lg">ISO</span>
               </div>
               <span className="text-gray-400 text-sm mt-2">ISO 27001</span>
@@ -326,7 +334,6 @@ export default function Home() {
             {/* GDPR */}
             <div className="flex flex-col items-center justify-center border border-gray-700 h-56">
               <div className="w-20 h-20 bg-gray-600 rounded-full flex items-center justify-center mb-2">
-                {/* Placeholder for GDPR badge */}
                 <span className="text-gray-300 font-bold text-lg">EU</span>
               </div>
               <span className="text-gray-400 text-sm mt-2">GDPR</span>
@@ -350,7 +357,7 @@ export default function Home() {
               <div>
                 <div className="font-bold text-lg mb-4 tracking-widest">NOMURA</div>
                 <p className="text-2xl md:text-3xl text-black mb-8 leading-snug">
-                  "Our strategic integration of Rogo is going to transform how we deliver value to clients. Rogo enables our teams to analyze market data and identify opportunities with unprecedented speed and precision, while allowing our bankers to focus more deeply on client relationships and strategic advisory."
+                &ldquo;Our strategic integration of Rogo is going to transform how we deliver value to clients. Rogo enables our teams to analyze market data and identify opportunities with unprecedented speed and precision, while allowing our bankers to focus more deeply on client relationships and strategic advisory.&rdquo;
                 </p>
               </div>
               <div>
@@ -371,7 +378,6 @@ export default function Home() {
               />
             </div>
           </div>
-          {/* Optional: Carousel Arrows */}
           <div className="flex justify-end gap-2 mt-4">
             <button className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-2xl text-gray-400 hover:bg-gray-200 transition">
               &#8592;
@@ -442,6 +448,35 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+
+      {/* Chatbot */}
+      {showBar && (
+        <div className="fixed bottom-8 right-8 z-50">
+          <button
+            className="bg-black text-white px-4 py-2 rounded-full shadow-lg"
+            onClick={() => setShowBar(false)}
+          >
+            Close Chatbot
+          </button>
+        </div>
+      )}
+      {!showBar && (
+        <div className="fixed bottom-8 right-8 z-50">
+          <button
+            className="bg-black text-white px-4 py-2 rounded-full shadow-lg"
+            onClick={() => setShowBar(true)}
+          >
+            Open Chatbot
+          </button>
+          <div className="mt-2 text-xs text-gray-500 text-center">
+            Press <span className="font-mono bg-gray-200 px-1 rounded">ESC</span> to open
+          </div>
+        </div>
+      )}
+
+      <ChatInterface isOpen={showBar} onClose={() => setShowBar(false)} />
+
     </div>
   );
 }

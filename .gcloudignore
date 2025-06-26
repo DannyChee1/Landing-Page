@@ -1,0 +1,7 @@
+# ignore node modules and build outputs
+node_modules
+.next
+.git
+
+# but DO include your .env.local
+!.env.local
